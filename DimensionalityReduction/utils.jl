@@ -7,12 +7,15 @@ using Plots; gr()
 function plotData(data, class_num, sample_per_class, title)
     sp = 1
     ep = sample_per_class
-    scatter(data[sp:ep, 1], data[sp:ep, 2], data[sp:ep, 3])
+    sliced = view(data[sp : ep, :], :, :)
+    scatter(sliced[:, 1], sliced[:, 2], sliced[:, 3])
     
     for _ = 2 : class_num
         sp = ep + 1
         ep += sample_per_class
-        s = scatter!(data[sp:ep, 1], data[sp:ep, 2], data[sp:ep, 3])
+        
+        sliced = view(data[sp : ep, :], :, :)     
+        s = scatter!(sliced[:, 1], sliced[:, 2], sliced[:, 3])
     end
     title!(title)
 end
