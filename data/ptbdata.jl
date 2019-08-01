@@ -3,7 +3,6 @@ using Random: shuffle!
 using Flux
 using Flux: batchseq, OneHotVector, OneHotMatrix
 
-# TODO(ying) Is it necessary to control the use of global varaiables?
 const traindata = "ptb.train.txt"
 const validdata = "ptb.valid.txt"
 const testdata = "ptb.test.txt"
